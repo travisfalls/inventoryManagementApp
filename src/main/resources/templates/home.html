@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layouts/basic">
+<head>
+<title>Indy Droid Inventory</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body layout:fragment="content">
+	<div class="container">
+		<div class="row">
+			<h1>PRODUCTS</h1>
+
+			<table class="table">
+			<thead>
+				<tr>
+					<th>ID #</th>
+					<th>Product Name</th>
+					<th>Sku</th>
+					<th>Price</th>
+					<th>Inventory</th>
+					<th>&nbsp;</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="product : ${products}">
+					<td scope="row" th:text="${product.id}"></td>
+					<td th:text="${product.productName}"></td>
+					<td th:text="${product.sku}"></td>
+					<td th:text="${product.productPrice}"></td>
+					<td th:text="${product.inventory}"></td>
+					<td><a href="/" th:href="@{|/product/${product.id}|}">View</a></td>
+				</tr>
+			</tbody>
+		</table>
+
+			<!-- <div class="list-group row col-md-10" th:each="product : ${products}">
+				<div class="list-group-item">
+					<h4 class="list-group-item-heading">PRODUCT NAME</h4>
+					<p class="list-group-item-text" th:text="*{product.productName}"></p>
+				</div>
+				<div class="list-group-item">
+					<h4 class="list-group-item-heading">SKU</h4>
+					<p class="list-group-item-text" th:text="*{product.sku}"></p>
+				</div>
+				<div class="list-group-item">
+					<h4 class="list-group-item-heading">PRODUCT PRICE</h4>
+					<p class="list-group-item-text" th:text="*{product.productPrice}"></p>
+				</div>
+				<div class="list-group-item">
+					<h4 class="list-group-item-heading">PRODUCT ON HAND</h4>
+					<p class="list-group-item-text" th:text="*{product.inventory}"></p>
+				</div>
+			</div> -->
+
+			<!-- <div class="list-group row col-md-10" th:each="product : ${products}">
+				<div class="list-group-item">
+					<h4 class="list-group-item-heading"
+						th:text="*{product.productName}"></h4>
+					<p class="list-group-item-text" th:text="*{product.sku}"></p>
+					<p class="list-group-item-text" th:text="*{product.productPrice}"></p>
+					<p class="list-group-item-text" th:text="*{product.inventory}"></p>
+				</div>
+			</div> -->
+
+		</div>
+	</div>
+</body>
+</html>
