@@ -52,6 +52,7 @@ public class IndexController {
 	
 	@GetMapping("/product/create")
 	public String productCreate(Model model) {
+		
 		return "product_create";
 	}
 	
