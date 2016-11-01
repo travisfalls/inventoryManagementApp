@@ -5,6 +5,7 @@ import java.io.IOException;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
+
 import org.indyDroids.inventoryApp.beans.Product;
 import org.indyDroids.inventoryApp.beans.ProductImage;
 import org.indyDroids.inventoryApp.repository.ProductImageRepository;
@@ -43,16 +44,30 @@ public class IndexController {
 		return "login";
 	}
 	
-	@GetMapping("/home")
+	@GetMapping("/products")
 	public String home(Model model) {
 		model.addAttribute("products", productRepo.findAll());
-		return "home";
+		return "products";
+	}
+	
+	@GetMapping("/product/create")
+	public String productCreate(Model model) {
+		return "product_create";
+	}
+	
+	@PostMapping("/product/create")
+	public String productCreateSave(@ModelAttribute @Valid Product product, Model model) {
+
+		productRepo.save(product);
+			return "redirect:/product/" + product.getId();
 	}
 
 	@GetMapping("/product/{id}")
 	public String product(Model model, @PathVariable(name = "id") long id) {
 		model.addAttribute("id", id);
 		Product p = productRepo.findOne(id);
+		ProductImage i = productImageRepo.findByProductId(id);
+		model.addAttribute("productImage", i);
 		model.addAttribute("product", p);
 		return "product_detail";
 	}
@@ -64,6 +79,8 @@ public class IndexController {
 		model.addAttribute("product", p);
 		return "product_edit";
 	}
+	
+	
 	
 	@PostMapping("/product/{id}/edit")
 	public String productEditSave(@PathVariable(name = "id") long id, @ModelAttribute @Valid Product product,
