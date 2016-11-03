@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layouts/basic">
+<head>
+<title>Indy Droids Inventory</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body layout:fragment="content">
+
+	<div class="row">
+		<h1>Details</h1>
+		<h3>Product</h3>
+		<hr />
+		<img id="avatar" src="" th:if="${productImage}"
+			th:src="${productImage.htmlSrc}" alt="Profile Image"
+			title="Profile Image" />
+		<dl class="dl-horizontal" th:if="${product}">
+			<dt>Product ID #</dt>
+			<dd th:text="${product.id}"></dd>
+			<dt>Name</dt>
+			<dd th:text="${product.productName}"></dd>
+			<dt>SKU</dt>
+			<dd th:text="${product.sku}"></dd>
+			<dt>Price</dt>
+			<dd th:text="${product.productPrice}"></dd>
+			<dt>Inventory</dt>
+			<dd th:text="${product.inventory}"></dd>
+
+		</dl>
+		<a th:href="@{|/product/${product.id}/edit|}"><button
+				class="btn btn-primary">Edit</button></a> <a href="/"
+			th:href="@{|/products|}">Back</a>
+
+		<div th:unless="${product}">
+			<h1>Product not found</h1>
+		</div>
+	</div>
+</body>
+</html>

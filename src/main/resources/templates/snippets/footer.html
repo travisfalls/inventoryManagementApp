@@ -4,7 +4,9 @@
 </head>
 <body>
 	<div th:fragment="footer">
-		&copy; <span th:text="${#dates.format(#dates.createNow(), 'yyyy')}">2016</span> Indy Droids
+		<hr />
+		&copy; <span th:text="${#dates.format(#dates.createNow(), 'yyyy')}">2016</span>
+		Indy Droids
 	</div>
 </body>
 </html>

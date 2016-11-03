@@ -5,7 +5,6 @@ import java.io.IOException;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
-
 import org.indyDroids.inventoryApp.beans.Product;
 import org.indyDroids.inventoryApp.beans.ProductImage;
 import org.indyDroids.inventoryApp.repository.ProductImageRepository;
@@ -24,13 +23,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 @Controller
-public class IndexController {
-	
-	private static final Logger log = LoggerFactory.getLogger(IndexController.class);
+public class ProductController {
+
+	private static final Logger log = LoggerFactory.getLogger(ProductController.class);
 
 	@Autowired
 	private ProductRepository productRepo;
-	
+
 	@Autowired
 	private ProductImageRepository productImageRepo;
 
@@ -43,24 +42,48 @@ public class IndexController {
 	public String login(Model model) {
 		return "login";
 	}
-	
+
 	@GetMapping("/products")
 	public String home(Model model) {
 		model.addAttribute("products", productRepo.findAll());
-		return "products";
+		return "products/products";
 	}
-	
+
+	@GetMapping("/product/{id}/delete")
+	public String productDelete(Model model, @PathVariable(name = "id") long id) {
+		model.addAttribute("id", id);
+		Product p = productRepo.findOne(id);
+		ProductImage i = productImageRepo.findByProductId(id);
+		model.addAttribute("productImage", i);
+		model.addAttribute("product", p);
+		return "products/product_delete";
+	}
+
+	@PostMapping("/product/{id}/delete")
+	public String productDeleteSave(@PathVariable(name = "id") long id, @ModelAttribute @Valid Product product,
+			BindingResult result, Model model) {
+
+		if (result.hasErrors()) {
+			model.addAttribute("product", product);
+			return "products/product_delete";
+		} else {
+			productRepo.delete(product);
+			return "redirect:/products";
+		}
+
+	}
+
 	@GetMapping("/product/create")
 	public String productCreate(Model model) {
-		
-		return "product_create";
+
+		return "products/product_create";
 	}
-	
+
 	@PostMapping("/product/create")
 	public String productCreateSave(@ModelAttribute @Valid Product product, Model model) {
 
 		productRepo.save(product);
-			return "redirect:/product/" + product.getId();
+		return "redirect:/product/" + product.getId();
 	}
 
 	@GetMapping("/product/{id}")
@@ -70,7 +93,7 @@ public class IndexController {
 		ProductImage i = productImageRepo.findByProductId(id);
 		model.addAttribute("productImage", i);
 		model.addAttribute("product", p);
-		return "product_detail";
+		return "products/product_detail";
 	}
 
 	@GetMapping("/product/{id}/edit")
@@ -78,11 +101,9 @@ public class IndexController {
 		model.addAttribute("id", id);
 		Product p = productRepo.findOne(id);
 		model.addAttribute("product", p);
-		return "product_edit";
+		return "products/product_edit";
 	}
-	
-	
-	
+
 	@PostMapping("/product/{id}/edit")
 	public String productEditSave(@PathVariable(name = "id") long id, @ModelAttribute @Valid Product product,
 			BindingResult result, Model model, @RequestParam("file") MultipartFile file,
@@ -90,18 +111,18 @@ public class IndexController {
 
 		if (result.hasErrors()) {
 			model.addAttribute("product", product);
-			return "product_edit";
+			return "products/product_edit";
 		} else {
 
 			if (removeImage) {
-				//See if the user even has a user image
+				// See if the user even has a user image
 				ProductImage image = productImageRepo.findByProductId(id);
-				
-				if(image != null) {
+
+				if (image != null) {
 					productImageRepo.delete(image);
 					log.info("Image Removed " + id);
 				}
-				
+
 			} else if (file != null && !file.isEmpty()) {
 				try {
 					// Load the file into the proper format (Spring does this)
@@ -119,7 +140,7 @@ public class IndexController {
 
 					// Store in the database
 					productImageRepo.save(image);
-					
+
 				} catch (IOException e) {
 					log.error("Failed to upload file", e);
 				}

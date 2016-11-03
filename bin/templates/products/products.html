@@ -11,7 +11,7 @@
 		<div class="row">
 			<h1>PRODUCTS</h1>
 
-			<table class="table">
+			<table class="table table-hover">
 			<thead>
 				<tr>
 					<th>ID #</th>
@@ -29,8 +29,7 @@
 					<td th:text="${product.sku}"></td>
 					<td th:text="${product.productPrice}"></td>
 					<td th:text="${product.inventory}"></td>
-					<td><a href="/" th:href="@{|/product/${product.id}|}">View</a></td>
-					<!-- <td><a th:remove>Delete</a></td> -->
+					<td><a href="/" th:href="@{|/product/${product.id}|}">View</a>  |  <a href="/" th:href="@{|/product/${product.id}/edit|}">Edit</a>  |  <a th:href="@{|/product/${product.id}/delete/|}">Delete</a></td>
 				</tr>
 			</tbody>
 		</table>

@@ -25,9 +25,9 @@
 			</div>
 
 			<div class="form-group">
-				<label for="sku">Sku #</label> <input type="text"
-					name="sku" class="form-control" placeholder="Sku" th:field="*{sku}" />
-				<span th:if="${#fields.hasErrors('sku')}" th:errors="*{sku}">Sku
+				<label for="sku">Sku #</label> <input type="text" name="sku"
+					class="form-control" placeholder="Sku" th:field="*{sku}" /> <span
+					th:if="${#fields.hasErrors('sku')}" th:errors="*{sku}">Sku
 					Error</span>
 			</div>
 
@@ -48,8 +48,8 @@
 			</div>
 
 			<div class="form-group">
-				<label for="exampleInputfFile">Upload Image</label> <input type="file"
-					name="file" />
+				<label for="exampleInputfFile">Upload Image</label> <input
+					type="file" name="file" />
 				<p class="help-block">Upload a image of the product.</p>
 			</div>
 
@@ -59,9 +59,9 @@
 			</div>
 
 
-			<button type="submit" class="btn btn-default">Submit</button>
+			<button type="submit" class="btn btn-primary">Submit</button><a th:href="@{|/products/|}"><p>Back</p></a>
 		</form>
-
+		
 	</div>
 
 </body>

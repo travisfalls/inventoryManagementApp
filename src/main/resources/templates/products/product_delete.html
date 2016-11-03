@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layouts/basic">
+<head>
+<title>Indy Droids Inventory</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body layout:fragment="content">
+
+	<div class="row">
+		<h1>Delete</h1>
+		<hr />
+		<form method="POST" th:object="${product}"
+			enctype="multipart/form-data">
+			<input type="hidden" th:field="*{id}" />
+			<div th:if="${product}">
+				<img id="avatar" src="" th:if="${productImage}"
+				th:src="${productImage.htmlSrc}" alt="Profile Image" title="Profile
+				Image" />
+				<dl class="dl-horizontal" th:if="${product}">
+					<dt>Product ID #</dt>
+					<dd th:text="${product.id}"></dd>
+					<dt>Name</dt>
+					<dd th:text="${product.productName}"></dd>
+					<dt>SKU</dt>
+					<dd th:text="${product.sku}"></dd>
+					<dt>Price</dt>
+					<dd th:text="${product.productPrice}"></dd>
+					<dt>Inventory</dt>
+					<dd th:text="${product.inventory}"></dd>
+
+				</dl>
+				<button type="submit" class="btn btn-primary">Delete</button>
+				<a th:href="@{|/products/|}">Back</a>
+			</div>
+			<div th:unless="${product}">
+				<h1>Product not found</h1>
+			</div>
+		</form>
+	</div>
+</body>
+</html>
