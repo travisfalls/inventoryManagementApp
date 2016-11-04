@@ -23,3 +23,4 @@ insert into indydroids.users (user_first_name, user_last_name, user_email, user_
 insert into indydroids.transactions (user_id, product_id, product_quantity, transaction_date) values (1, 1, 1, 'January 30th, 2016');
 insert into indydroids.transactions (user_id, product_id, product_quantity, transaction_date) values (5, 3, 1, 'September 11th, 2016');
 insert into indydroids.transactions (user_id, product_id, product_quantity, transaction_date) values (6, 5, 1, 'November 1st, 2016');
+insert into indydroids.transactions (user_id, product_id, product_quantity, transaction_date) values (3, 2, 1, 'November 4th, 2016');
