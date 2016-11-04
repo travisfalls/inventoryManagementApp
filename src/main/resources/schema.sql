@@ -44,3 +44,13 @@ CREATE TABLE IF NOT EXISTS indydroids.user_properties (
   prop_name VARCHAR(45) NOT NULL,
   prop_value VARCHAR(255) NOT NULL,
   PRIMARY KEY (id));
+  
+CREATE TABLE IF NOT EXISTS indydroids.transactions (
+  id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  user_id INT UNSIGNED NOT NULL,
+  product_id INT UNSIGNED NOT NULL,
+  product_quantity INT UNSIGNED NOT NULL,
+  transaction_date VARCHAR(60) NOT NULL,
+  PRIMARY KEY (id));
+  
+  

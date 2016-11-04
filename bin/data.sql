@@ -19,3 +19,7 @@ insert into indydroids.users (user_first_name, user_last_name, user_email, user_
 insert into indydroids.users (user_first_name, user_last_name, user_email, user_phone_number) values ('Benicio', 'Del Toro', 'collector@abc.com', '5552225678');
 insert into indydroids.users (user_first_name, user_last_name, user_email, user_phone_number) values ('Michael', 'Rooker', 'yondu@abc.com', '5552222345');
 insert into indydroids.users (user_first_name, user_last_name, user_email, user_phone_number) values ('Stan', 'Lee', 'watcher@abc.com', '5555555555');
+
+insert into indydroids.transactions (user_id, product_id, product_quantity, transaction_date) values (1, 1, 1, 'January 30th, 2016');
+insert into indydroids.transactions (user_id, product_id, product_quantity, transaction_date) values (5, 3, 1, 'September 11th, 2016');
+insert into indydroids.transactions (user_id, product_id, product_quantity, transaction_date) values (6, 5, 1, 'November 1st, 2016');
