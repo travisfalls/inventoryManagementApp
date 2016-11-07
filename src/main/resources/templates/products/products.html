@@ -5,7 +5,8 @@
 <head>
 <title>Indy Droid Inventory</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link rel="stylesheet" type="text/css" href="../../css/main.css" th:href="@{../../css/main.css}"/>
+<link rel="stylesheet" type="text/css" href="../../css/main.css"
+	th:href="@{../../css/main.css}" />
 </head>
 <body layout:fragment="content">
 	<div class="container">
@@ -13,29 +14,42 @@
 			<h1>PRODUCTS</h1>
 
 			<table class="table table-hover">
-			<thead>
-				<tr>
-					<th>ID #</th>
-					<th>Product Name</th>
-					<th>Sku</th>
-					<th>Price</th>
-					<th>Inventory</th>
-					<th>&nbsp;</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr th:each="product : ${products}">
-					<td scope="row" th:text="${product.id}"></td>
-					<td th:text="${product.productName}"></td>
-					<td th:text="${product.sku}"></td>
-					<td th:text="${product.productPrice}"></td>
-					<td th:text="${product.inventory}"></td>
-					<td><a href="/" th:href="@{|/product/${product.id}|}">View</a>  |  <a href="/" th:href="@{|/product/${product.id}/edit|}">Edit</a>  |  <a th:href="@{|/product/${product.id}/delete/|}">Delete</a></td>
-				</tr>
-			</tbody>
-		</table>
-		
-		<a th:href="@{|/product/create/|}" ><button class="btn btn-primary">Add Product</button></a>
+				<thead>
+					<tr>
+						<th>ID #</th>
+						<th>Product Name</th>
+						<th>Sku</th>
+						<th>Price</th>
+						<th>Inventory</th>
+						<th>&nbsp;</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="product : ${products}">
+						<td scope="row" th:text="${product.id}"></td>
+						<td th:text="${product.productName}"></td>
+						<td th:text="${product.sku}"></td>
+						<td th:text="${product.productPrice}"></td>
+						<td th:text="${product.inventory}"></td>
+						<td>
+							<a href="/" th:href="@{|/product/${product.id}|}">
+								<span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+							</a>
+							&nbsp;&nbsp;&nbsp;
+							<a href="/" th:href="@{|/product/${product.id}/edit|}"><span
+								class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+							</a>
+							&nbsp;&nbsp;&nbsp; 
+							<a th:href="@{|/product/${product.id}/delete/|}">
+								<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+							</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<a th:href="@{|/product/create/|}"><button
+					class="btn btn-primary">Add Product</button></a>
 
 			<!-- <div class="list-group row col-md-10" th:each="product : ${products}">
 				<div class="list-group-item">

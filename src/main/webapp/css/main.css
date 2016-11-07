@@ -1,5 +1,6 @@
 body {
 	background-color: #f4f4f4;
+	color: #333333;
 }
 
 hr {
@@ -33,4 +34,12 @@ hr {
 .btn-primary.active {
   background-color: #E6B200;
   border-color: #E6B200;
+}
+
+td a {
+	color: #333333;
+}
+
+td a :hover {
+	color: #f4f4f4;
 }
