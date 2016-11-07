@@ -5,7 +5,8 @@
 <head>
 <title>Indy Droids Inventory</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link rel="stylesheet" type="text/css" href="../../css/main.css" th:href="@{../../css/main.css}"/>
+<link rel="stylesheet" type="text/css" href="../../css/main.css"
+	th:href="@{../../css/main.css}" />
 </head>
 <body layout:fragment="content">
 
@@ -30,11 +31,15 @@
 
 		</dl>
 		<a th:href="@{|/user/${user.id}/edit|}"><button
-				class="btn btn-primary">Edit</button></a> <a href="/"
-			th:href="@{|/users|}">Back</a>
+				class="btn btn-primary">Edit</button></a>
+		<div id="back-btn">
+			<a href="/" th:href="@{|/users|}"><span
+				class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>Back</a>
+		</div>
+
 
 		<div th:unless="${user}">
-			<h1>Product not found</h1>
+			<h1>User not found</h1>
 		</div>
 	</div>
 </body>

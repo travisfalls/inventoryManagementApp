@@ -5,7 +5,8 @@
 <head>
 <title>Indy Droids Inventory</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link rel="stylesheet" type="text/css" href="../../css/main.css" th:href="@{../../css/main.css}"/>
+<link rel="stylesheet" type="text/css" href="../../css/main.css"
+	th:href="@{../../css/main.css}" />
 </head>
 <body layout:fragment="content">
 
@@ -17,7 +18,8 @@
 			<dt>Transaction ID #</dt>
 			<dd th:text="${transaction.id}"></dd>
 			<dt>User Name</dt>
-			<dd th:text="${transaction.user.userFirstName} + ' ' + ${transaction.user.userLastName}"></dd>
+			<dd
+				th:text="${transaction.user.userFirstName} + ' ' + ${transaction.user.userLastName}"></dd>
 			<dt>Product</dt>
 			<dd th:text="${transaction.product.productName}"></dd>
 			<dt>Quantity</dt>
@@ -29,8 +31,12 @@
 
 		</dl>
 		<a th:href="@{|/transaction/${transaction.id}/edit|}"><button
-				class="btn btn-primary">Edit</button></a> <a href="/"
-			th:href="@{|/transaction|}">Back</a>
+				class="btn btn-primary">Edit</button></a>
+
+		<div id="back-btn">
+			<a href="/" th:href="@{|/users|}"><span
+				class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>Back</a>
+		</div>
 
 		<div th:unless="${transaction}">
 			<h1>Product not found</h1>

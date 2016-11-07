@@ -60,9 +60,12 @@
 			</div>
 
 
-			<button type="submit" class="btn btn-primary">Submit</button><a th:href="@{|/products/|}"><p>Back</p></a>
+			<button type="submit" class="btn btn-primary">Submit</button>
 		</form>
-		
+		<div id="back-btn">
+			<a href="/" th:href="@{|/products|}"><span
+				class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>Back</a>
+		</div>
 	</div>
 
 </body>

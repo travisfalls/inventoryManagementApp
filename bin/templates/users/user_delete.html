@@ -5,7 +5,8 @@
 <head>
 <title>Indy Droids Inventory</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link rel="stylesheet" type="text/css" href="../../css/main.css" th:href="@{../../css/main.css}"/>
+<link rel="stylesheet" type="text/css" href="../../css/main.css"
+	th:href="@{../../css/main.css}" />
 </head>
 <body layout:fragment="content">
 
@@ -32,7 +33,10 @@
 
 				</dl>
 				<button type="submit" class="btn btn-primary">Delete</button>
-				<a th:href="@{|/users/|}">Back</a>
+				<div id="back-btn">
+					<a href="/" th:href="@{|/users|}"><span
+						class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>Back</a>
+				</div>
 			</div>
 			<div th:unless="${user}">
 				<h1>Product not found</h1>

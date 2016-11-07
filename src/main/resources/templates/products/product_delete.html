@@ -33,7 +33,10 @@
 
 				</dl>
 				<button type="submit" class="btn btn-primary">Delete</button>
-				<a th:href="@{|/products/|}">Back</a>
+				<div id="back-btn">
+			<a href="/" th:href="@{|/products|}"><span
+				class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>Back</a>
+		</div>
 			</div>
 			<div th:unless="${product}">
 				<h1>Product not found</h1>

@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -37,6 +38,11 @@ public class ProductController {
 	public String index(Model model, HttpServletRequest request) {
 		return "index";
 	}
+	
+	@RequestMapping("/home")
+	public String home(Model model) {
+		return "index";
+	}
 
 	@GetMapping("/login")
 	public String login(Model model) {
@@ -44,7 +50,7 @@ public class ProductController {
 	}
 
 	@GetMapping("/products")
-	public String home(Model model) {
+	public String products(Model model) {
 		model.addAttribute("products", productRepo.findAll());
 		return "products/products";
 	}

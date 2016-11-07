@@ -36,10 +36,34 @@ hr {
   border-color: #E6B200;
 }
 
+#back-btn {
+	padding: 20px 20px 20px 0px;
+	color: #333333;
+	transition: all 0.4s ease;
+}
+
+#back-btn :hover {
+	color: #ffc600;
+	text-decoration: none;
+}
+
+#back-btn a{
+	color: #333333;
+	transition: all 0.4s ease;
+}
+
+/* #back-btn a :hover {
+	color: #ffc600;
+	text-decoration: none;
+} */
+
 td a {
 	color: #333333;
+	text-decoration: none;
+	transition: all 0.4s ease;
 }
 
 td a :hover {
 	color: #f4f4f4;
+	text-decoration: none;
 }

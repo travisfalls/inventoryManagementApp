@@ -5,7 +5,8 @@
 <head>
 <title>Indy Droid Inventory</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link rel="stylesheet" type="text/css" href="../../css/main.css" th:href="@{../../css/main.css}"/>
+<link rel="stylesheet" type="text/css" href="../../css/main.css"
+	th:href="@{../../css/main.css}" />
 </head>
 <body layout:fragment="content">
 
@@ -13,29 +14,29 @@
 
 		<h1>Edit User</h1>
 
-		<form method="POST" th:object="${user}"
-			enctype="multipart/form-data">
+		<form method="POST" th:object="${user}" enctype="multipart/form-data">
 			<input type="hidden" th:field="*{id}" />
 
 			<div class="form-group">
-				<label for="userFirstName">User First Name</label> <input type="text"
-					name="userFirstName" class="form-control" placeholder="User First Name"
-					th:field="*{userFirstName}" /> <span
+				<label for="userFirstName">User First Name</label> <input
+					type="text" name="userFirstName" class="form-control"
+					placeholder="User First Name" th:field="*{userFirstName}" /> <span
 					th:if="${#fields.hasErrors('userFirstName')}"
 					th:errors="*{userFirstName}">User First Name Error</span>
 			</div>
-			
+
 			<div class="form-group">
 				<label for="userLastName">User Last Name</label> <input type="text"
-					name="userLastName" class="form-control" placeholder="User Last Name"
-					th:field="*{userLastName}" /> <span
+					name="userLastName" class="form-control"
+					placeholder="User Last Name" th:field="*{userLastName}" /> <span
 					th:if="${#fields.hasErrors('userLastName')}"
 					th:errors="*{userLastName}">User Last Name Error</span>
 			</div>
 
 			<div class="form-group">
-				<label for="userEmail">Email</label> <input type="text" name="userEmail"
-					class="form-control" placeholder="Email" th:field="*{userEmail}" /> <span
+				<label for="userEmail">Email</label> <input type="text"
+					name="userEmail" class="form-control" placeholder="Email"
+					th:field="*{userEmail}" /> <span
 					th:if="${#fields.hasErrors('userEmail')}" th:errors="*{userEmail}">Email
 					Error</span>
 			</div>
@@ -60,9 +61,13 @@
 			</div>
 
 
-			<button type="submit" class="btn btn-primary">Submit</button><a th:href="@{|/users/|}"><p>Back</p></a>
+			<button type="submit" class="btn btn-primary">Submit</button>
 		</form>
-		
+		<div id="back-btn">
+			<a href="/" th:href="@{|/users|}"><span
+				class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>Back</a>
+		</div>
+
 	</div>
 
 </body>
