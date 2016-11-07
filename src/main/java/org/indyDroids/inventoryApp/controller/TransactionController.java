@@ -2,12 +2,11 @@ package org.indyDroids.inventoryApp.controller;
 
 import javax.validation.Valid;
 
-import org.indyDroids.inventoryApp.beans.Product;
-import org.indyDroids.inventoryApp.beans.ProductImage;
+
 import org.indyDroids.inventoryApp.beans.Transaction;
-import org.indyDroids.inventoryApp.repository.ProductRepository;
+
 import org.indyDroids.inventoryApp.repository.TransactionRepository;
-import org.indyDroids.inventoryApp.repository.UserRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,12 +21,6 @@ public class TransactionController {
 
 	@Autowired
 	private TransactionRepository transactionRepo;
-	
-	@Autowired
-	private UserRepository userRepo;
-	
-	@Autowired
-	private ProductRepository productRepo;
 
 	@GetMapping("/transactions")
 	public String home(Model model) {
@@ -55,13 +48,13 @@ public class TransactionController {
 	public String transactionDeleteSave(@PathVariable(name = "id") long id, @ModelAttribute @Valid Transaction transaction,
 			BindingResult result, Model model) {
 
-		if (result.hasErrors()) {
-			model.addAttribute("transaction", transaction);
-			return "transaction/transaction_delete";
-		} else {
+//		if (result.hasErrors()) {
+//			model.addAttribute("transaction", transaction);
+//			return "transaction/transaction_delete";
+//		} else {
 			transactionRepo.delete(transaction);
 			return "redirect:/transactions";
-		}
+//		}
 
 	}
 

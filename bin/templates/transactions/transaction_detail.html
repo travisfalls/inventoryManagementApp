@@ -3,10 +3,6 @@
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 	layout:decorator="layouts/basic">
 <head>
-<title>Indy Droids Inventory</title>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link rel="stylesheet" type="text/css" href="../../css/main.css"
-	th:href="@{../../css/main.css}" />
 </head>
 <body layout:fragment="content">
 
@@ -18,8 +14,7 @@
 			<dt>Transaction ID #</dt>
 			<dd th:text="${transaction.id}"></dd>
 			<dt>User Name</dt>
-			<dd
-				th:text="${transaction.user.userFirstName} + ' ' + ${transaction.user.userLastName}"></dd>
+			<dd th:text="${transaction.user.userFirstName} + ' ' + ${transaction.user.userLastName}"></dd>
 			<dt>Product</dt>
 			<dd th:text="${transaction.product.productName}"></dd>
 			<dt>Quantity</dt>
