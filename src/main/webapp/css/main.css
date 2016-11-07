@@ -1,0 +1,36 @@
+body {
+	background-color: #f4f4f4;
+}
+
+hr {
+	border-color: #aaaaaa;
+}
+
+.navbar {
+	background-color: #333333;
+	
+}
+
+.navbar-nav :hover {
+	background-color: #ffc600;
+	transition: all 0.4s ease;
+}
+
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th{
+	background-color: #ffc600;
+	transition: all 0.4s ease;
+}
+
+.btn-primary {
+	background-color: #ffc600;
+	border-color: #ffc600;
+	transition: all 0.4s ease;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active {
+  background-color: #E6B200;
+  border-color: #E6B200;
+}
