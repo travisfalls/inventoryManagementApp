@@ -1,5 +1,5 @@
 body {
-	background-color: #f4f4f4;
+	background-color: #fafafa;
 	color: #333333;
 }
 
@@ -14,18 +14,18 @@ hr {
 
 .navbar-nav :hover {
 	background-color: #ffc600;
-	transition: all 0.4s ease;
+	transition: all 0.2s ease;
 }
 
 .table-hover tbody tr:hover td, .table-hover tbody tr:hover th{
 	background-color: #ffc600;
-	transition: all 0.4s ease;
+	transition: all 0.2s ease;
 }
 
 .btn-primary {
 	background-color: #ffc600;
 	border-color: #ffc600;
-	transition: all 0.4s ease;
+	transition: all 0.2s ease;
 }
 
 .btn-primary:hover,
@@ -39,7 +39,7 @@ hr {
 #back-btn {
 	padding: 20px 20px 20px 0px;
 	color: #333333;
-	transition: all 0.4s ease;
+	transition: all 0.2s ease;
 }
 
 #back-btn :hover {
@@ -49,7 +49,7 @@ hr {
 
 #back-btn a{
 	color: #333333;
-	transition: all 0.4s ease;
+	transition: all 0.2s ease;
 }
 
 /* #back-btn a :hover {
@@ -60,7 +60,7 @@ hr {
 td a {
 	color: #333333;
 	text-decoration: none;
-	transition: all 0.4s ease;
+	transition: all 0.2s ease;
 }
 
 td a :hover {
