@@ -1,6 +1,6 @@
 body {
-	background-color: #fafafa;
-	color: #333333;
+	background-color: #333333;
+	color: #fafafa;
 }
 
 hr {
@@ -8,9 +8,11 @@ hr {
 }
 
 .navbar {
-	background-color: #333333;
+	background-color: #ffc600;
 	
 }
+
+.navbar
 
 .navbar-nav :hover {
 	background-color: #ffc600;
