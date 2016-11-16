@@ -7,23 +7,23 @@ hr {
 	border-color: #fafafa;
 }
 
-#brand-logo {
-	color: #333333;
+#index-nav {
+	background-color: transparent;
 }
 
-#nav-btn a{
-	color: #333333;
+#index-nav #brand-logo {
+	color: #ffc600;
 }
 
-.navbar {
-	background-color: #ffc600;
+#index-nav #nav-btn a {
+	color: #fafafa;
 }
 
-.navbar-nav :hover {
-	background-color: #E6B200;
+#index-nav #nav-btn :hover {
+	background-color: transparent;
+	color: #ffc600;
 	transition: all 0.2s ease;
 }
-
 .table-hover tbody tr:hover td, .table-hover tbody tr:hover th{
 	background-color: #ffc600;
 	color: #333333;
