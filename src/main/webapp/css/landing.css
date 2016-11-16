@@ -1,5 +1,6 @@
 body {
-	background:url('../../css/droids_background.jpg') top center no-repeat;
+	background:url('../../css/droids_background_large.jpg') no-repeat;
+	background-position: 50% 20%;
 	background-color: #333333;
 	color: #fafafa;
 	font-size: 16px;
